@@ -12,13 +12,14 @@ router.post('/', (req, res, next) => {
   console.log(req.body);
 
   db.user.findOne({
-    name: req.body.username
+    user: req.body.user
   }, function(err, data) {
     if(data){
       bcrypt.compare(req.body.password, data.password, function(err, hash) {
         if (hash) {
           req.session.name = data.name;
-          res.redirect('/');
+          req.session.id = data._id;
+          res.redirect('/stuinfo');
         } else {
           res.redirect('/login');
         }

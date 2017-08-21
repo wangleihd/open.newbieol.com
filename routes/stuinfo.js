@@ -5,7 +5,7 @@ var db = require('../collections');
 var salt = 10;
 
 router.get('/', (req, res, next) => {
-  res.render('register', {title: '注 册'});
+  res.render('register', {title: '学生信息'});
 });
 
 router.post('/', (req, res, next) => {

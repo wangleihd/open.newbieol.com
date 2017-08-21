@@ -12,18 +12,19 @@
     <div class="container">
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
-            <form class="" action="/login" method="post">
+            <form class="" action="/register" method="post">
             <div class="form-login">
-            <h4>登录体验课信息系统</h4>
-            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="登录用户名" name="user" />
-            </br>
-            <input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="登录密码" name="password" />
+            <h3>注册用户</h3>
+            <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="登陆名称,输入英文" name="user" />
+            <h4></h4>
+            <input type="text" id="name" class="form-control input-sm chat-input" placeholder="输入真实中文名子" name="name" />
+            <br>
+            <input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="请输入登陆密码" name="repassword" />
             </br>
             <div class="wrapper">
             <span class="group-btn">
-                <button type="submit" class="btn btn-success btn-md">登录 <i class="fa fa-sign-in"></i></button>
-
-                <button type="reset" class="btn btn-md">取消 <i class="fa fa-refresh"></i></button>
+                <button type="submit" class="btn btn-success btn-md">注 册 <i class="fa fa-sign-in"></i></button>
+                <a href="/login"  class="btn btn-default btn-md">登 陆 </a>
             </span>
             </div>
             </div>

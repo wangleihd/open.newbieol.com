@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const url = 'mongodb://remn:remn@ds163301.mlab.com:63301/remn';
+const url = 'mongodb://oc:open@ds151153.mlab.com:51153/oc';
 
 mongoose.connect(url);
 
@@ -12,9 +12,23 @@ db.once('open', function(){
 let Schema = mongoose.Schema;
 
 let userShema = Schema({
+  user: { type: String },
   name: { type: String },
   password: { type: String }
 });
-
-
 module.exports.user = mongoose.model('user', userShema);
+
+let stuShema = Schema({
+  name: { type: String },
+  phone: { type: String },
+  stu: { type: String },
+  qq: { type: String, default: "" }
+});
+module.exports.stu = mongoose.model('stu', stuShema);
+
+let infoShema = Schema({
+  name: { type: String },
+  phone: { type: String },
+  qq: { type: String, default: "" }
+});
+module.exports.info = mongoose.model('info', stuShema);
