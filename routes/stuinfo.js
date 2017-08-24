@@ -2,10 +2,18 @@ var express = require('express');
 var bcrypt = require('bcrypt');
 var router = express.Router();
 var db = require('../collections');
+var moment = require('moment');
 var salt = 10;
 
 router.get('/', (req, res, next) => {
-  res.render('register', {title: '学生信息'});
+    if(req.session.name){
+        db.stu.find({}, function(err, doc){
+            console.log(doc);
+            res.render('stuinfo', {title: '学生信息', stus: doc, moment: moment});
+        });
+    } else {
+        res.redirect('/login');
+    }
 });
 
 router.post('/', (req, res, next) => {

@@ -1,0 +1,13 @@
+<tr>
+    <td class="view-message">
+        <div class="new">
+            <i class="fa fa-circle-o" aria-hidden="true"></i>
+        </div>
+    </td>
+    <td class="view-message"><%= one.subName[one.subject] %></td>
+    <td class="view-message"><a href="/stu/<%= one._id %>"><%= one.name %></a></td>
+    <td class="view-message"><i class="fa fa-mobile fa-1.5x" aria-hidden="true"></i> : <%= one.phone %></td>
+    <td class="view-message"><i class="fa fa-qq" aria-hidden="true"></i> : <%= one.qq %></td>
+    <td class="view-message"><i class="fa fa-comments-o" aria-hidden="true"></i> : <%= one.message.slice(0, 10) %> ...</td>
+    <td class="view-message  text-right"><%= moment(one.data).format('YYYY-MM-DD  HH:MM') %></td>
+</tr>

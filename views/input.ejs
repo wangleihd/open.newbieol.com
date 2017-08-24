@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class='container'>
+    <div class='row'>
+        <div class='col-sm-10 col-sm-offset-1'>
+            <div class='well'>
+                <form method="post" action="/input">
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <div class='form-group'>
+                                <label for='fname'>真实姓名:</label>
+                                <input type='text' name='name' class='form-control' placeholder="必填项" />
+                            </div>
+                            <div class='form-group'>
+                                <label for='lname'>手机号码:</label>
+                                <input type='tel' name='phone' class='form-control' maxlength="11" size="11" placeholder="必填项"/>
+                            </div>
+                            <div class='form-group'>
+                                <label for='email'>QQ 号:</label>
+                                <input type='text' name='qq' class='form-control' placeholder="必填项"/>
+                            </div>
+                            <div class='form-group'>
+                                <label for='subject'>公开课: </label>
+                                <select name='subject' class='form-control'>
+                                    <option value="0">请选择公开课</option>
+                                    <option value="1">游戏开发 Unity 3D</option>
+                                    <option value="2">3D 美术</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class='col-sm-8'>
+                            <div class='form-group'>
+                                <label for='message'>留言</label>
+                                <textarea class='form-control' name='message' rows='10' ></textarea>
+                            </div>
+                            <div class='text-right'>
+                                <div class="kong">
+                                    <button type='submit' class='btn btn-primary'>提交</button>
+                                    <a type='reset' class='btn btn-default'>重置</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+
+</body>
+</html>
