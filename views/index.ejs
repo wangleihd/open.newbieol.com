@@ -1,216 +1,449 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Optional theme -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-      <div class="container">
-          <div class="row">
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
 
-              <section class="content">
-                  <h1>Table Filter</h1>
-                  <div class="col-md-8 col-md-offset-2">
-                      <div class="panel panel-default">
-                          <div class="panel-body">
-                              <div class="pull-right">
-                                  <div class="btn-group">
-                                      <button type="button" class="btn btn-success btn-filter" data-target="pagado">Pagado</button>
-                                      <button type="button" class="btn btn-warning btn-filter" data-target="pendiente">Pendiente</button>
-                                      <button type="button" class="btn btn-danger btn-filter" data-target="cancelado">Cancelado</button>
-                                      <button type="button" class="btn btn-default btn-filter" data-target="all">Todos</button>
-                                  </div>
-                              </div>
-                              <div class="table-container">
-                                  <table class="table table-filter">
-                                      <tbody>
-                                          <tr data-status="pagado">
-                                              <td>
-                                                  <div class="ckbox">
-                                                      <input type="checkbox" id="checkbox1">
-                                                      <label for="checkbox1"></label>
-                                                  </div>
-                                              </td>
-                                              <td>
-                                                  <a href="javascript:;" class="star">
-                                                      <i class="glyphicon glyphicon-star"></i>
-                                                  </a>
-                                              </td>
-                                              <td>
-                                                  <div class="media">
-                                                      <a href="#" class="pull-left">
-                                                          <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-                                                      </a>
-                                                      <div class="media-body">
-                                                          <span class="media-meta pull-right">Febrero 13, 2016</span>
-                                                          <h4 class="title">
-                                                              Lorem Impsum
-                                                              <span class="pull-right pagado">(Pagado)</span>
-                                                          </h4>
-                                                          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-                                                      </div>
-                                                  </div>
-                                              </td>
-                                          </tr>
-                                          <tr data-status="pendiente">
-                                              <td>
-                                                  <div class="ckbox">
-                                                      <input type="checkbox" id="checkbox3">
-                                                      <label for="checkbox3"></label>
-                                                  </div>
-                                              </td>
-                                              <td>
-                                                  <a href="javascript:;" class="star">
-                                                      <i class="glyphicon glyphicon-star"></i>
-                                                  </a>
-                                              </td>
-                                              <td>
-                                                  <div class="media">
-                                                      <a href="#" class="pull-left">
-                                                          <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-                                                      </a>
-                                                      <div class="media-body">
-                                                          <span class="media-meta pull-right">Febrero 13, 2016</span>
-                                                          <h4 class="title">
-                                                              Lorem Impsum
-                                                              <span class="pull-right pendiente">(Pendiente)</span>
-                                                          </h4>
-                                                          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-                                                      </div>
-                                                  </div>
-                                              </td>
-                                          </tr>
-                                          <tr data-status="cancelado">
-                                              <td>
-                                                  <div class="ckbox">
-                                                      <input type="checkbox" id="checkbox2">
-                                                      <label for="checkbox2"></label>
-                                                  </div>
-                                              </td>
-                                              <td>
-                                                  <a href="javascript:;" class="star">
-                                                      <i class="glyphicon glyphicon-star"></i>
-                                                  </a>
-                                              </td>
-                                              <td>
-                                                  <div class="media">
-                                                      <a href="#" class="pull-left">
-                                                          <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-                                                      </a>
-                                                      <div class="media-body">
-                                                          <span class="media-meta pull-right">Febrero 13, 2016</span>
-                                                          <h4 class="title">
-                                                              Lorem Impsum
-                                                              <span class="pull-right cancelado">(Cancelado)</span>
-                                                          </h4>
-                                                          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-                                                      </div>
-                                                  </div>
-                                              </td>
-                                          </tr>
-                                          <tr data-status="pagado" class="selected">
-                                              <td>
-                                                  <div class="ckbox">
-                                                      <input type="checkbox" id="checkbox4" checked>
-                                                      <label for="checkbox4"></label>
-                                                  </div>
-                                              </td>
-                                              <td>
-                                                  <a href="javascript:;" class="star star-checked">
-                                                      <i class="glyphicon glyphicon-star"></i>
-                                                  </a>
-                                              </td>
-                                              <td>
-                                                  <div class="media">
-                                                      <a href="#" class="pull-left">
-                                                          <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-                                                      </a>
-                                                      <div class="media-body">
-                                                          <span class="media-meta pull-right">Febrero 13, 2016</span>
-                                                          <h4 class="title">
-                                                              Lorem Impsum
-                                                              <span class="pull-right pagado">(Pagado)</span>
-                                                          </h4>
-                                                          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-                                                      </div>
-                                                  </div>
-                                              </td>
-                                          </tr>
-                                          <tr data-status="pendiente">
-                                              <td>
-                                                  <div class="ckbox">
-                                                      <input type="checkbox" id="checkbox5">
-                                                      <label for="checkbox5"></label>
-                                                  </div>
-                                              </td>
-                                              <td>
-                                                  <a href="javascript:;" class="star">
-                                                      <i class="glyphicon glyphicon-star"></i>
-                                                  </a>
-                                              </td>
-                                              <td>
-                                                  <div class="media">
-                                                      <a href="#" class="pull-left">
-                                                          <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
-                                                      </a>
-                                                      <div class="media-body">
-                                                          <span class="media-meta pull-right">Febrero 13, 2016</span>
-                                                          <h4 class="title">
-                                                              Lorem Impsum
-                                                              <span class="pull-right pendiente">(Pendiente)</span>
-                                                          </h4>
-                                                          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
-                                                      </div>
-                                                  </div>
-                                              </td>
-                                          </tr>
-                                      </tbody>
-                                  </table>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="content-footer">
-                          <p>
-                              Page © - 2016 <br>
-                              Powered By <a href="https://www.facebook.com/tavo.qiqe.lucero" target="_blank">TavoQiqe</a>
-                          </p>
-                      </div>
-                  </div>
-              </section>
+<title>公开课</title>
 
-          </div>
-      </div>
+<!--==== bootstrap ====-->
+<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+<!--==== font-awesome ====-->
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<!--==== owl-carousel ====-->
+<link href="/css/owl.carousel.css" rel="stylesheet">
+<!--==== magnific-popup ====-->
+<link href="/css/magnific-popup.css" rel="stylesheet">
+<!--==== animate css ====-->
+<link href="/css/animate.min.css" rel="stylesheet">
 
-      <script type="text/javascript">
-      $(document).ready(function () {
+<!--==== style css ====-->
+<link href="/css/style.css" rel="stylesheet">
+<!--==== responsive css ====-->
+<link href="/css/responsive.css" rel="stylesheet">
 
-          $('.star').on('click', function () {
-              $(this).toggleClass('star-checked');
-          });
+<!--==== jquery ====-->
+<script src="/js/jquery-2.1.4.min.js"></script>
 
-          $('.ckbox label').on('click', function () {
-              $(this).parents('tr').toggleClass('selected');
-          });
-
-          $('.btn-filter').on('click', function () {
-              var $target = $(this).data('target');
-              if ($target != 'all') {
-                  $('.table tr').css('display', 'none');
-                  $('.table tr[data-status="' + $target + '"]').fadeIn('slow');
-              } else {
-                  $('.table tr').css('display', 'none').fadeIn('slow');
-              }
-          });
-
-      });
-      </script>
+<!--[if lt IE 9]>
+<script src="js/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="js/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
 
 
-  </body>
-  </html>
+<!--===== Preloader ====-->
+<div class="preloader">
+	<div class="spinner">
+	  <div class="double-bounce1"></div>
+	  <div class="double-bounce2"></div>
+	</div>
+</div>
+
+
+ <!--=====****************** INTRO SECTION ****************************=====-->
+<div id="home" class="intro-section">
+
+ <!--===== HEADER AREA =====-->
+	<header class="navbar custom-navbar">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<div class="logo">
+					   <div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<a href="#home">公开课</a> <!--== logo ==-->
+					</div>
+				</div>
+
+				<div class="col-md-9 col-sm-9 col-xs-12">
+				   <nav class="main-menu">
+					<div class="navbar-collapse collapse">
+						<ul class="nav navbar-nav"> <!--== manin menu ==-->
+							<li class="active smooth-scroll"><a class="theme-color" href="#home">首页</a></li>
+							<li class="smooth-scroll"><a class="theme-color" href="#about">Unity开发</a></li>
+							<li class="smooth-scroll"><a class="theme-color" href="#services">3D美术</a></li>
+							<li class="smooth-scroll"><a class="theme-color" href="#portfolio">作品欣赏</a></li>
+							<li class="smooth-scroll"><a class="theme-color" href="#contact">马上报名</a></li>
+						</ul>
+					</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+<!--===== END HEADER AREA ======-->
+
+<!--======= WELCOME AREA =======-->
+	<div class="welcome-area">
+	  <div id="particles-js"></div>
+	   <div class="welcome-table">
+		   <div class="welcome-cell">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="welcome-text text-center">
+								<h1>公开课 <span class="theme-color">开讲啦!!! </span></h1>
+                                <h4>北京菜鸟在线-广州分公司邀请您参加.</h4>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="#about" class="scroll-btn banner-icon theme-color"><i class="fa fa-angle-double-down"></i></a>
+	</div>
+	<!--===== END WELCOME AREA =====-->
+
+</div>
+<!--=====***************** END INTRO SECTION ***********************=====-->
+
+
+<!--=====************** ABOUT SECTION ***************=====-->
+<section id="about" class="about-section section-padding">
+	<div class="container">
+        <h1>Unity开发</h1>
+		<div class="row">
+			<div class="col-md-4">
+			   <div class="author-image wow fadeInLeft" data-wow-delay="0.4s">
+					<img src="images/author.jpg" alt="Author Image"> <!--=== author image ===-->
+
+				<div class="social-icon theme-color"> <!--=== author social icons ===-->
+						<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+						<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+						<a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+						<a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+						<a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
+						<a href="#" target="_blank"><i class="fa fa-youtube-play"></i></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-8">
+			   <div class="about-text wow fadeInRight" data-wow-delay="0.4s">
+					<h3>Hello, that's me!</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+					<a class="btn theme-color" href="#"><i class="fa fa-download"></i> download resume</a> <a class="scroll-btn btn extra" href="#portfolio">see work</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>
+<!--=====*********** END ABOUT SECTION **************=====-->
+
+
+
+
+<!--=====************** ABOUT SECTION ***************=====-->
+<section id="services" class="services-section section-padding">
+	<div class="container">
+        <h1>3D美术</h1>
+		<div class="row">
+			<div class="col-md-8">
+			   <div class="about-text wow fadeInRight" data-wow-delay="0.4s">
+					<h3>Hello, that's me!</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+					<a class="btn theme-color" href="#"><i class="fa fa-download"></i> download resume</a> <a class="scroll-btn btn extra" href="#portfolio">see work</a>
+				</div>
+			</div>
+
+            <div class="col-md-4">
+                <div class="author-image wow fadeInLeft" data-wow-delay="0.4s">
+                    <img src="images/author.jpg" alt="Author Image"> <!--=== author image ===-->
+
+                    <div class="social-icon theme-color"> <!--=== author social icons ===-->
+                        <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-youtube-play"></i></a>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</section>
+<!--=====*********** END ABOUT SECTION **************=====-->
+
+
+<!--QUOTES AREA-->
+<div id="quotes" class="quotes-area section-padding">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="quotes-content text-center">
+				   <h3>Let's work together!</h3>
+					<p>I am available for freelance projects.</p>
+					<a class="scroll-btn btn theme-color" href="#contact">Get Quotes</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--END QUOTES AREA-->
+
+
+<!--======********** PORTFOLIO SECTION *********======-->
+<section id="portfolio" class="section-padding">
+<div class="container">
+	<div class="row">
+			<div class="col-md-12">
+				<div class="section-title">
+					<h2>作品欣赏</h2>
+				</div>
+			</div>
+		</div>
+
+	<div class="row">
+		<div class="col-md-4 col-sm-6 single-work">
+			<a href="images/portfolio/item1.jpg" class="image-popup">
+			<img src="images/portfolio/item1.jpg" alt="">
+			<div class="itemHover">
+				<div class="work-table">
+					<div class="table-cell">
+						<div class="hover-content">
+							<i class="fa fa-camera"></i>
+							<h6>Category / Identity</h6>
+						</div>
+					</div>
+				</div>
+			  </div>
+			</a>
+		</div>
+
+		<div class="col-md-4 col-sm-6 single-work">
+			<a href="images/portfolio/item2.jpg" class="image-popup">
+				<img src="images/portfolio/item2.jpg" alt="">
+					<div class="itemHover">
+					<div class="work-table">
+						<div class="table-cell">
+							<div class="hover-content">
+								<i class="fa fa-camera"></i>
+								<h6>Category / Identity</h6>
+							</div>
+						</div>
+					</div>
+				  </div>
+			</a>
+		</div>
+
+		<div class="col-md-4 col-sm-6 single-work">
+			<a href="images/portfolio/item3.jpg" class="image-popup">
+				<img src="images/portfolio/item3.jpg" alt="">
+			   <div class="itemHover">
+					<div class="work-table">
+						<div class="table-cell">
+							<div class="hover-content">
+								<i class="fa fa-camera"></i>
+								<h6>Category / Identity</h6>
+							</div>
+						</div>
+					</div>
+				  </div>
+			</a>
+		</div>
+
+		<div class="col-md-4 col-sm-6 single-work">
+			<a href="images/portfolio/item4.jpg" class="image-popup">
+				<img src="images/portfolio/item4.jpg" alt="">
+				<div class="itemHover">
+					<div class="work-table">
+						<div class="table-cell">
+							<div class="hover-content">
+								<i class="fa fa-camera"></i>
+								<h6>Category / Identity</h6>
+							</div>
+						</div>
+					</div>
+				  </div>
+			</a>
+		</div>
+
+		<div class="col-md-4 col-sm-6 single-work">
+			<a href="images/portfolio/item5.jpg" class="image-popup">
+				<img src="images/portfolio/item5.jpg" alt="">
+				<div class="itemHover">
+					<div class="work-table">
+						<div class="table-cell">
+							<div class="hover-content">
+								<i class="fa fa-camera"></i>
+								<h6>Category / Identity</h6>
+							</div>
+						</div>
+					</div>
+				  </div>
+			</a>
+		</div>
+
+		<div class="col-md-4 col-sm-6 single-work">
+			<a href="images/portfolio/item6.jpg" class="image-popup">
+				<img src="images/portfolio/item6.jpg" alt="">
+				<div class="itemHover">
+					<div class="work-table">
+						<div class="table-cell">
+							<div class="hover-content">
+								<i class="fa fa-camera"></i>
+								<h6>Category / Identity</h6>
+							</div>
+						</div>
+					</div>
+				  </div>
+			</a>
+		</div>
+
+	</div><!--/.row-->
+</div><!--/.container-->
+</section>
+<!--======************ END PORTFOLIO SECTION **************======-->
+
+
+<!--======**************** REVIEW SECTION *****************========-->
+<div id="review" class="review-section section-padding">
+	<div class="container">
+	   <div class="row">
+			<div class="col-md-12">
+				<div class="section-title">
+					<h2><span class="theme-color">Here's what others say about me</span> Reviews</h2>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				 <div class="review-full-area">
+				   <div class="review-list">
+					<div class="single-review"> <!-- start single carousel item -->
+						<div class="review-content">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+						</div>
+						<h5 class="author"> Paul Flavius. <span>CEO Devsoft Inc</span></h5>
+					</div> <!-- end single carousel item -->
+					<div class="single-review"> <!-- start single carousel item -->
+						<div class="review-content">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+						</div>
+						<h5 class="author"> Paul Flavius,<span>CEO Devsoft Inc</span></h5>
+					</div> <!-- end single carousel item -->
+					<div class="single-review"> <!-- start single carousel item -->
+						<div class="review-content">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+						</div>
+						<h5 class="author"> Paul Flavius,<span>CEO Devsoft Inc</span></h5>
+					</div> <!-- end start single carousel item -->
+					<div class="single-review"> <!-- start single carousel item -->
+						<div class="review-content">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+						</div>
+						<h5 class="author"> Paul Flavius,<span>CEO Devsoft Inc</span></h5>
+					</div> <!-- end start single carousel item -->
+				</div>
+					</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!--======************* END REVIEW SECTION ***************========-->
+
+
+<!--======******************** CONTACT INFO SECTION **********************======-->
+<section id="contact" class="contact-area section-padding">
+    <div class="container">
+    <div class='row'>
+        <br>
+        <div class='col-sm-10 col-sm-offset-1'>
+            <div><h1>填写报名信息:</h1></div>
+            <div class='well'>
+                <form method="post" action="/input">
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <div class='form-group'>
+                                <label for='fname'>真实姓名:</label>
+                                <input type='text' name='name' class='form-control' placeholder="必填项" required="required" />
+                            </div>
+                            <div class='form-group'>
+                                <label for='lname'>手机号码:</label>
+                                <input type='tel' name='phone' class='form-control' maxlength="11" size="11" placeholder="必填项" required="required"/>
+                            </div>
+                            <div class='form-group'>
+                                <label for='email'>QQ 号:</label>
+                                <input type='text' name='qq' class='form-control' placeholder="必填项" required="required"/>
+                            </div>
+                            <div class='form-group'>
+                                <label for='subject'>公开课: </label>
+                                <select name='subject' class='form-control' required="required" >
+                                    <option value="0">请选择公开课</option>
+                                    <option value="1">游戏开发 Unity 3D</option>
+                                    <option value="2">3D 美术</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class='col-sm-8'>
+                            <div class='form-group'>
+                                <label for='message'>留言</label>
+                                <textarea class='form-control' name='message' rows='10' ></textarea>
+                            </div>
+                            <div class='text-right'>
+                                <div class="kong">
+                                    <button type='submit' class='btn theme-color'>提 交</button>
+                                    <a type='reset' class='btn btn-info'>重 置</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<!--======**************** END CONTACT INFO SECTION ********************======-->
+
+
+<!--======******************* FOOTER SECTION ******************======-->
+<footer class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+			   <div class="footer-text wow fadeInUp" data-wow-delay="0.4s">
+					<p>Copyright &copy; 2017.北京菜鸟在线-广州分公司.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!--======******************* END FOOTER SECTION ***************======-->
+
+
+<!--==== plugins js ====-->
+<script src="js/plugins.js"></script>
+<!--==== magnific-popup-options js ====-->
+<script src="js/magnific-popup-options.js"></script>
+<!--==== validator js ====-->
+<script src="js/validator.min.js"></script>
+<!--==== particles js ====-->
+<script src="js/particles.min.js"></script>
+<!--==== app js ====-->
+<script src="js/app.js"></script>
+<!--==== app js ====-->
+<script src="js/wow-1.3.0.min.js"></script>
+<!--==== main js ====-->
+<script src="js/main.js"></script>
+</body>
+</html>
