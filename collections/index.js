@@ -24,7 +24,7 @@ let stuShema = Schema({
   qq: { type: String, default: "" },
   subject: { type: String },
   message: { type: String },
-  data: { type: Date, default: new Date() },
+  data: { type: Date, default: Date.now },
   new: {type:Boolean, default: true },
   zxName: { type: String, default: ""},
   zxMessage: { type: String, default: ""},

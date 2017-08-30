@@ -474,6 +474,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     display: table-cell;
     vertical-align: middle;
 }
+.welcome-text div {
+    text-align: center;
+}
 .welcome-text{
 
 }
@@ -485,6 +488,15 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     letter-spacing: 10px;
     text-transform: uppercase;
 }
+.welcome-text h3{
+    font-size: 24px;
+    color: #fff;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
 .welcome-text h4{
     color: #fff;
     margin: 15px 0;
@@ -493,6 +505,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     font-weight: 600;
     text-transform: uppercase;
 }
+
+
+
 .welcome-text h1 span{
 
 }

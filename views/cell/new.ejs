@@ -9,5 +9,5 @@
     <td class="view-message"><i class="fa fa-mobile fa-1.5x" aria-hidden="true"></i> : <%= one.phone %></td>
     <td class="view-message"><i class="fa fa-qq" aria-hidden="true"></i> : <%= one.qq %></td>
     <td class="view-message"><i class="fa fa-comments-o" aria-hidden="true"></i> : <%= one.message.slice(0, 10) %> ...</td>
-    <td class="view-message  text-right"><%= moment(one.data).format('YYYY-MM-DD  HH:MM') %></td>
+    <td class="view-message  text-right"><%= moment(one.data).zone(-8).format('YYYY-MM-DD') %> &nbsp; <%=  moment(one.data).zone(-8).format('HH:MM') %></td>
 </tr>

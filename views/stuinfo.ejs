@@ -9,7 +9,7 @@
                   <div class="panel-heading">新报名</div>
                   <div class="panel-body">
                       <table class="table table-inbox table-hover">
-                            <tbody>
+                            <tbody class="new">
                             <% stus.forEach(function(e){ %>
                               <%- include('./cell/new', {one: e}) %>
                             <% }) %>
@@ -49,9 +49,18 @@
               </div>
 
 
-
-
           </div>
       </div>
   </body>
+  <script>
+    var socket = io();
+    socket.on('new', function(msg){
+      console.log(msg);
+      var subName = msg.subName[msg.subject];
+      var mesg = msg.message.slice(0, 10);
+      var ndate = moment(one.data).zone(-8).format('YYYY-MM-DD  HH:MM');
+      var $newinfo = $('<tr><td class="view-message"><div class="new"><i class="fa fa-circle-o" aria-hidden="true"></i></div></td><td class="view-message">'+subName+'</td><td class="view-message"><a href="/stu/'+msg._id+'">'+ msg.name +'</a></td><td class="view-message"><i class="fa fa-mobile fa-1.5x" aria-hidden="true"></i> : '+msg.phone+'</td><td class="view-message"><i class="fa fa-qq" aria-hidden="true"></i> : '+msg.qq+'</td><td class="view-message"><i class="fa fa-comments-o" aria-hidden="true"></i> : '+mesg+' ...</td><td class="view-message  text-right">'+ndate+'</td></tr>');
+      $('tbody').prepend($newinfo);
+    });
+  </script>
 </html>

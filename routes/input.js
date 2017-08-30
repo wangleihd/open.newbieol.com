@@ -3,6 +3,7 @@ var assert = require('assert');
 var bcrypt = require('bcrypt');
 var router = express.Router();
 var db = require('../collections');
+var socket = require('../socket');
 var salt = 10;
 
 router.get('/', (req, res, next) => {
@@ -15,6 +16,7 @@ router.post('/', (req, res, next) => {
     console.log(info);
     info.save((err, data) => {
         assert.equal(err, null);
+        socket.io.emit('new', data);
         res.redirect("/");
     });
 });

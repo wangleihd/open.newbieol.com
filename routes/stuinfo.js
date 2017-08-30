@@ -5,9 +5,10 @@ var db = require('../collections');
 var moment = require('moment');
 var salt = 10;
 
+
 router.get('/', (req, res, next) => {
     if(req.session.name){
-        db.stu.find({}, function(err, doc){
+        db.stu.find().sort({'_id': -1}).exec(function(err, doc){
             console.log(doc);
             res.render('stuinfo', {title: '学生信息', stus: doc, moment: moment});
         });
