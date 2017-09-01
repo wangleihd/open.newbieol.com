@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const url = 'mongodb://123.56.134.156:27017';
+const url = 'mongodb://123.56.134.156:27017/openstu';
 mongoose.Promise = global.Promise;
 mongoose.connect(url, {useMongoClient: true});
 
