@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const url = 'mongodb://oc:open@ds151153.mlab.com:51153/oc';
-
-mongoose.connect(url);
+const url = 'mongodb://123.56.134.156:27017';
+mongoose.Promise = global.Promise;
+mongoose.connect(url, {useMongoClient: true});
 
 let db = mongoose.connection;
 
