@@ -19,7 +19,8 @@ router.post('/', (req, res, next) => {
         if (hash) {
           req.session.name = data.name;
           req.session.id = data._id;
-          res.redirect('/stuinfo');
+          req.session.user = data.user;
+          res.redirect('/admin');
         } else {
           res.redirect('/login');
         }

@@ -62,7 +62,14 @@ app.use('/logout', logout);
 app.use('/register', register);
 app.use('/stuinfo', stuinfo);
 app.use('/input', input);
-app.use('/stu', admin);
+app.use(function(req,res,next){
+    if(req.session.user){
+      next();
+    }else{
+      res.redirect('/login');
+    }
+});
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
