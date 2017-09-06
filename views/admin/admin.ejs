@@ -1,325 +1,202 @@
-<!DOCTYPE html>
-<html>
-    <%- include head %>
-    <body class="skin-black">
-        <!-- header logo: style can be found in header.less -->
-        <header class="header">
-            <a href="#" class="logo">
-                <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                报名系统
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown user user-menu">
-                            <a href="/admin/logout" class="dropdown-toggle">
-                                <i class="fa fa-user"></i>
-                                hi, <span><%= name %> 退出</span>&nbsp;&nbsp;
-                            </a>
-                        </li>
-                    </ul>
+<%- include head %>
+<%- include nav %>
+<div class="content">
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <div class="panel">
+                    <header class="panel-heading">
+                        <h4>本周公开课已报名</h4>
+
+                    </header>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="width: 10px">ID</th>
+                                <th>课程名称</th>
+                                <th>主讲教师</th>
+                                <th>已报名</th>
+                                <th>完成</th>
+                                <th style="width: 75px">是否开课</th>
+                            </tr>
+                            <tr>
+                                <td>1.</td>
+                                <td>Unity 游戏开发</td>
+                                <td>林老师</td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress xs">
+                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-green">公开课</span></td>
+                            </tr>
+                            <tr>
+                                <td>2.</td>
+                                <td>3D 游戏建模</td>
+                                <td>郭老师</td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress xs">
+                                        <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-green">公开课</span></td>
+                            </tr>
+                            <tr>
+                                <td>3.</td>
+                                <td>H5 全栈开发</td>
+                                <td>王老师</td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress xs progress-striped active">
+                                        <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-light-blue">未开课</span></td>
+                            </tr>
+                        </table>
+                    </div><!-- /.panel-body -->
+
+                </div><!-- /.panel -->
+            </div>
+            <div class="col-md-5">
+                <div class="panel">
+                    <header class="panel-heading">
+                        <h4>本周公开课已报名</h4>
+
+                    </header>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="width: 10px">ID</th>
+                                <th>课程名称</th>
+                                <th>主讲教师</th>
+                                <th>已报名</th>
+                                <th>完成</th>
+                                <th style="width: 75px">是否开课</th>
+                            </tr>
+                            <tr>
+                                <td>1.</td>
+                                <td>Unity 游戏开发</td>
+                                <td>林老师</td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress xs">
+                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-green">公开课</span></td>
+                            </tr>
+                            <tr>
+                                <td>2.</td>
+                                <td>3D 游戏建模</td>
+                                <td>郭老师</td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress xs">
+                                        <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-green">公开课</span></td>
+                            </tr>
+                            <tr>
+                                <td>3.</td>
+                                <td>H5 全栈开发</td>
+                                <td>王老师</td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress xs progress-striped active">
+                                        <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-light-blue">未开课</span></td>
+                            </tr>
+                        </table>
+                    </div><!-- /.panel-body -->
+
+                </div><!-- /.panel -->
+            </div>
+        </div>
+
+        <!-- 刚报名的学生 -->
+
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1">
+                <div class="panel">
+                    <header class="panel-heading">
+                        <h4>刚报名</h4>
+
+                    </header>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="width: 10px"></th>
+                                <th style="width: 100px">姓 名</th>
+                                <th style="width: 150px" >课程名称</th>
+                                <th style="width: 150px">联系电话</th>
+                                <th style="width: 200px">QQ 号</th>
+                                <th>留言信息</th>
+                                <th style="width: 180px">时间</th>
+                            </tr>
+                            <% stus.forEach(function(e){ %>
+                                <%- include('new', {one: e}) %>
+                                <% }) %>
+                            </table>
+                        </div><!-- /.panel-body -->
+
+                    </div><!-- /.panel -->
                 </div>
-            </nav>
-        </header>
+                <div class="col-xs-10 col-xs-offset-1">
+                    <div class="panel">
+                        <header class="panel-heading">
+                            <h4>刚报名</h4>
 
-        <div class="content">
-                <!-- Main content -->
-                <section class="content">
-                    <div class="row">
-                        <div class="col-md-5 col-md-offset-1">
-                            <div class="panel">
-                                <header class="panel-heading">
-                                    <h4>本周公开课已报名</h4>
+                        </header>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th style="width: 10px"></th>
+                                    <th style="width: 100px">姓 名</th>
+                                    <th style="width: 150px" >课程名称</th>
+                                    <th style="width: 150px">联系电话</th>
+                                    <th style="width: 200px">QQ 号</th>
+                                    <th>留言信息</th>
+                                    <th style="width: 180px">时间</th>
+                                </tr>
+                                <% stus.forEach(function(e){ %>
+                                    <%- include('new', {one: e}) %>
+                                    <% }) %>
+                                </table>
+                            </div><!-- /.panel-body -->
 
-                                </header>
-                                <div class="panel-body">
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <th style="width: 10px">ID</th>
-                                            <th>课程名称</th>
-                                            <th>主讲教师</th>
-                                            <th>已报名</th>
-                                            <th>完成</th>
-                                            <th style="width: 75px">是否开课</th>
-                                        </tr>
-                                        <tr>
-                                            <td>1.</td>
-                                            <td>Unity 游戏开发</td>
-                                            <td>林老师</td>
-                                            <td>50</td>
-                                            <td>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-green">公开课</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2.</td>
-                                            <td>3D 游戏建模</td>
-                                            <td>郭老师</td>
-                                            <td>50</td>
-                                            <td>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-green">公开课</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3.</td>
-                                            <td>H5 全栈开发</td>
-                                            <td>王老师</td>
-                                            <td>50</td>
-                                            <td>
-                                                <div class="progress xs progress-striped active">
-                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-light-blue">未开课</span></td>
-                                        </tr>
-                                    </table>
-                                </div><!-- /.panel-body -->
-
-                            </div><!-- /.panel -->
-                        </div>
-                        <div class="col-md-5">
-                            <div class="panel">
-                                <header class="panel-heading">
-                                    <h4>本周公开课已报名</h4>
-
-                                </header>
-                                <div class="panel-body">
-                                    <table class="table table-bordered">
-                                        <tr>
-                                            <th style="width: 10px">ID</th>
-                                            <th>课程名称</th>
-                                            <th>主讲教师</th>
-                                            <th>已报名</th>
-                                            <th>完成</th>
-                                            <th style="width: 75px">是否开课</th>
-                                        </tr>
-                                        <tr>
-                                            <td>1.</td>
-                                            <td>Unity 游戏开发</td>
-                                            <td>林老师</td>
-                                            <td>50</td>
-                                            <td>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-green">公开课</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2.</td>
-                                            <td>3D 游戏建模</td>
-                                            <td>郭老师</td>
-                                            <td>50</td>
-                                            <td>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-green">公开课</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3.</td>
-                                            <td>H5 全栈开发</td>
-                                            <td>王老师</td>
-                                            <td>50</td>
-                                            <td>
-                                                <div class="progress xs progress-striped active">
-                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                                                </div>
-                                            </td>
-                                            <td><span class="badge bg-light-blue">未开课</span></td>
-                                        </tr>
-                                    </table>
-                                </div><!-- /.panel-body -->
-
-                            </div><!-- /.panel -->
-                        </div>
+                        </div><!-- /.panel -->
                     </div>
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div class="panel">
+                            <header class="panel-heading">
+                                <h4>刚报名</h4>
 
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1">
-                            <div class="panel">
-                                <header class="panel-heading">
-                                    <h4>刚刚报名的学生信息</h4>
-
-                                </header>
-                                <!-- <div class="box-header"> -->
-                                    <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
-
-                                <!-- </div> -->
-                                <div class="panel-body table-responsive">
-                                    <div class="box-tools m-b-15">
-                                        <div class="input-group">
-                                            <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
-                                            <div class="input-group-btn">
-                                                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <table class="table table-hover">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>User</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>Reason</th>
-                                        </tr>
-                                        <tr>
-                                            <td>183</td>
-                                            <td>John Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="label label-success">Approved</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>219</td>
-                                            <td>Jane Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="label label-warning">Pending</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>657</td>
-                                            <td>Bob Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="label label-primary">Approved</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>175</td>
-                                            <td>Mike Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="label label-danger">Denied</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        </tr>
+                            </header>
+                            <div class="panel-body">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th style="width: 10px"></th>
+                                        <th style="width: 100px">姓 名</th>
+                                        <th style="width: 150px" >课程名称</th>
+                                        <th style="width: 150px">联系电话</th>
+                                        <th style="width: 200px">QQ 号</th>
+                                        <th>留言信息</th>
+                                        <th style="width: 180px">时间</th>
+                                    </tr>
+                                    <% stus.forEach(function(e){ %>
+                                        <%- include('new', {one: e}) %>
+                                        <% }) %>
                                     </table>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-                        </div>
-                        <div class="col-xs-10 col-xs-offset-1">
-                            <div class="panel">
-                                <header class="panel-heading">
-                                    <h4>刚刚报名的学生信息</h4>
+                                </div><!-- /.panel-body -->
 
-                                </header>
-                                <!-- <div class="box-header"> -->
-                                    <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
-
-                                <!-- </div> -->
-                                <div class="panel-body table-responsive">
-                                    <div class="box-tools m-b-15">
-                                        <div class="input-group">
-                                            <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
-                                            <div class="input-group-btn">
-                                                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <table class="table table-hover">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>User</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>Reason</th>
-                                        </tr>
-                                        <tr>
-                                            <td>183</td>
-                                            <td>John Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="label label-success">Approved</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>219</td>
-                                            <td>Jane Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="label label-warning">Pending</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>657</td>
-                                            <td>Bob Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="label label-primary">Approved</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>175</td>
-                                            <td>Mike Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="label label-danger">Denied</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        </tr>
-                                    </table>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-                        </div>
-                        <div class="col-xs-10 col-xs-offset-1">
-                            <div class="panel">
-                                <header class="panel-heading">
-                                    <h4>刚刚报名的学生信息</h4>
-
-                                </header>
-                                <!-- <div class="box-header"> -->
-                                    <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
-
-                                <!-- </div> -->
-                                <div class="panel-body table-responsive">
-                                    <div class="box-tools m-b-15">
-                                        <div class="input-group">
-                                            <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
-                                            <div class="input-group-btn">
-                                                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <table class="table table-hover">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>User</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>Reason</th>
-                                        </tr>
-                                        <tr>
-                                            <td>183</td>
-                                            <td>John Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="label label-success">Approved</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>219</td>
-                                            <td>Jane Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="label label-warning">Pending</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>657</td>
-                                            <td>Bob Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="label label-primary">Approved</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>175</td>
-                                            <td>Mike Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="label label-danger">Denied</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                        </tr>
-                                    </table>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
+                            </div><!-- /.panel -->
                         </div>
                     </div>
                 </section><!-- /.content -->
@@ -329,6 +206,3 @@
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
         <%- include footer %>
-
-    </body>
-</html>

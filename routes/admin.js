@@ -1,8 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var moment = require('moment')
+
 const db = require('../collections');
+
+
 router.get('/', function(req, res, next){
-    res.render('admin/admin', {name: req.session.name});
+    db.stu.find().sort({'_id': -1}).exec(function(err, doc){
+        res.render('admin/admin', {name: req.session.name, stus: doc, moment: moment});
+    });
 });
 
 router.get('/logout', function(req, res, next){
@@ -11,15 +17,17 @@ router.get('/logout', function(req, res, next){
     });
     res.redirect('/admin');
 });
-// /* GET users listing. */
-// router.get('/:id', function(req, res, next) {
-//     db.stu.findById(req.params.id, function(err, stu) {
-//         if (err)
-//         res.send(err);
-//         console.log(stu);
-//         res.render('admin', {title: '', stu: stu});
-//     });
-// });
+
+/* GET users listing. */
+router.get('/:id', function(req, res, next) {
+    db.stu.findById(req.params.id, function(err, stu) {
+        if (err)
+        res.send(err);
+        console.log(stu);
+        res.render('admin', {title: '', stu: stu, name: req.session.name});
+    });
+});
+
 
 router.post('/update', function(req, res, next) {
     console.log(req.body);

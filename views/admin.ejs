@@ -1,100 +1,92 @@
-<!DOCTYPE html>
-<html>
-<% include head %>
-  <body>
+<%- include admin/head %>
+<%- include admin/nav %>
 
-      <div class="container">
-          <div class='container'>
-              <div class='row'>
-                  <div class='col-sm-10 col-sm-offset-1'>
-                      <h3>报名学生进行确认</h3>
-                      <div class='well'>
-                          <form method="post" action="/stu/update">
-                              <div class='row'>
-                                  <div class='col-sm-8'>
-                                      <div class='form-group'>
-                                          <label for='message'>备注信息:</label>
-                                          <textarea class='form-control' name='message' rows='3'></textarea>
-                                      </div>
-                                  </div>
-                                  <div class='col-sm-4'>
-                                      <div class='form-group'><br></div>
-                                      <div class='form-group'><br></div>
-                                      <div class='text-right'>
-                                          <div class="kong">
-                                              <button type='submit' class='btn btn-success' name="_id" value="<%= stu._id %>"><i class="fa fa-pencil-square-o" aria-hidden="true" ></i> 已确认</button>
-                                              <a type='reset' class='btn btn-default'>取消</a>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </form>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-
-
-
-
-
-      <div class="container">
-          <div class='container'>
-      <div class='row'>
-          <div class='col-sm-10 col-sm-offset-1'>
-              <h3>报名学生信息:</h3>
-              <div class='well'>
-                  <form method="post" action="/stu/update">
-                      <div class='row'>
-                          <div class='col-sm-4'>
-                              <div class='form-group'>
-                                  <label for='fname'>真实姓名:</label>
-                                  <input type='text' name='name' class='form-control' value="<%= stu.name %>" />
-                              </div>
-                              <div class='form-group'>
-                                  <label for='lname'>手机号码:</label>
-                                  <input type='tel' name='phone' class='form-control' maxlength="11" size="11" value="<%= stu.phone %>"/>
-                              </div>
-                              <div class='form-group'>
-                                  <label for='email'>QQ 号:</label>
-                                  <input type='text' name='qq' class='form-control' value="<%= stu.qq %>"/>
-                              </div>
-                              <div class='form-group'>
-                                  <label for='subject'>公开课: </label>
-                                  <select name='subject' class='form-control'>
-                                      <option value="0" <% if(stu.subject == '0') { %>  selected <% } %> >未选择公开课</option>
-                                      <option value="1" <% if(stu.subject == '1') { %>  selected <% } %> >游戏开发 Unity 3D</option>
-                                      <option value="2" <% if(stu.subject == '2') { %>  selected <% } %> >3D 美术</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <div class='col-sm-8'>
-                              <div class='form-group'>
-                                  <label for='message'>留言</label>
-                                  <textarea class='form-control' name='message' rows='10'><%= stu.message %></textarea>
-                              </div>
-                              <div class='text-right'>
-                                  <div class="kong">
-                                      <button type='submit' class='btn btn-primary' name="_id" value="<%= stu._id %>"><i class="fa fa-pencil-square-o" aria-hidden="true" ></i> 修改</button>
-                                      <a type='reset' class='btn btn-default'>重置</a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
-  </div>
+<div class="container">
+    <div class='container'>
+        <div class='row'>
+            <div class='col-sm-10 col-sm-offset-1'>
+                <h3>报名学生进行确认</h3>
+                <div class='well'>
+                    <form method="post" action="/stu/update">
+                        <div class='row'>
+                            <div class='col-sm-8'>
+                                <div class='form-group'>
+                                    <label for='message'>备注信息:</label>
+                                    <textarea class='form-control' name='message' rows='3'></textarea>
+                                </div>
+                            </div>
+                            <div class='col-sm-4'>
+                                <div class='form-group'><br></div>
+                                <div class='form-group'><br></div>
+                                <div class='text-right'>
+                                    <div class="kong">
+                                        <button type='submit' class='btn btn-success' name="_id" value="<%= stu._id %>"><i class="fa fa-pencil-square-o" aria-hidden="true" ></i> 已确认</button>
+                                        <a type='reset' class='btn btn-default'>取消</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-sm-10 col-sm-offset-1'>
+                <h3>报名学生信息:</h3>
+                <div class='well'>
+                    <form method="post" action="/stu/update">
+                        <div class='row'>
+                            <div class='col-sm-4'>
+                                <div class='form-group'>
+                                    <label for='fname'>真实姓名:</label>
+                                    <input type='text' name='name' class='form-control' value="<%= stu.name %>" />
+                                </div>
+                                <div class='form-group'>
+                                    <label for='lname'>手机号码:</label>
+                                    <input type='tel' name='phone' class='form-control' maxlength="11" size="11" value="<%= stu.phone %>"/>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='email'>QQ 号:</label>
+                                    <input type='text' name='qq' class='form-control' value="<%= stu.qq %>"/>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='subject'>公开课: </label>
+                                    <select name='subject' class='form-control'>
+                                        <option value="0" <% if(stu.subject == '0') { %>  selected <% } %> >未选择公开课</option>
+                                        <option value="1" <% if(stu.subject == '1') { %>  selected <% } %> >游戏开发 Unity 3D</option>
+                                        <option value="2" <% if(stu.subject == '2') { %>  selected <% } %> >3D 美术</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class='col-sm-8'>
+                                <div class='form-group'>
+                                    <label for='message'>留言</label>
+                                    <textarea class='form-control' name='message' rows='10'><%= stu.message %></textarea>
+                                </div>
+                                <div class='text-right'>
+                                    <div class="kong">
+                                        <button type='submit' class='btn btn-primary' name="_id" value="<%= stu._id %>"><i class="fa fa-pencil-square-o" aria-hidden="true" ></i> 修改</button>
+                                        <a type='reset' class='btn btn-default'>重置</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="footer-main">
+        <p>Copyright &copy; 2017 &nbsp;&nbsp;&nbsp; <a href="http://www.newbieol.com">北京菜鸟在线</a>&nbsp;&nbsp;&nbsp;广州分公司.</p>
+    </div>
 </div>
 
 
 
 
 
-
-
-  </body>
-</html>
+<%- include admin/footer %>

@@ -1,0 +1,20 @@
+<tr>
+    <td class="text-red" style="width: 10px"><i class="fa fa-chevron-circle-right fa-lg" aria-hidden="true"></i>
+</td>
+    <td style="width: 100px"><a href="/admin/<%= one._id%>"><%= one.name %></a></td>
+    <td style="width: 150px" ><%= one.subName[one.subject] %></td>
+    <td style="width: 150px"><i class="fa fa-mobile fa-lg" aria-hidden="true"></i> : <%= one.phone %></td>
+    <td style="width: 200px"><i class="fa fa-qq text-blue" aria-hidden="true"></i> : <%= one.qq %></td>
+    <td><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> :
+        <% if(one.message.length) { %>
+            <% if(one.message.length < 40) { %>
+                <%= one.message %>
+            <% } else { %>
+                <%= one.message.slice(0, 40) %> ...
+            <%}%>
+        <% } else { %>
+            这家伙很懒什么也没有写 ...
+        <% } %>
+    </td>
+    <td style="width: 180px"><%= moment(one.data).format('YYYY-MM-DD') %> &nbsp; <%=  moment(one.data).zone(-8).format('HH:MM') %></td>
+</tr>
