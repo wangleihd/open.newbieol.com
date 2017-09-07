@@ -40,7 +40,7 @@ router.post('/stu', function(req, res, next) {
         db.stu.findByIdAndUpdate(req.body._id, {$set: update}, function(err, result) {
             if(err) console.log(err);
             console.log(result);
-            res.redirect("/admin/" +  req.body._id);
+            res.redirect("/admin");
         })
 
     });
