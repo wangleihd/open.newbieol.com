@@ -1,12 +1,69 @@
 <!-- jQuery 2.0.2 -->
-
-<script src="/js/jquery-2.1.4.min.js" type="text/javascript"></script>
-
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- Director App -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
 <script src="/js/admin.js" type="text/javascript"></script>
+<script src="https://cdn.bootcss.com/Chart.js/2.6.0/Chart.min.js"></script>
+<script type="text/javascript" src="/js/chartjs.js"></script>
+<script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.10/index.js"></script>
+
+
+<script>
+$.getJSON('/data/avg-temp.json',function(data){
+var Frame = G2.Frame;
+var frame = new Frame(data);
+frame = Frame.combinColumns(frame, ['New York', 'San Francisco','Austin'], 'value', 'city', 'date');
+var chart = new G2.Chart({
+ id: 'stu-data',
+ forceFit: true,
+ height: 450,
+ plotCfg: {
+   margin: [20, 20, 100, 80]
+ }
+});
+
+chart.source(frame, {
+ date: {
+   type: 'time',
+   mask: 'yyyy.mm',
+   tickCount: 12
+ },
+ value: {
+   alias: 'Temperature, ºF'
+ }
+});
+chart.legend({
+ position: 'bottom'
+});
+chart.axis('date', {
+ line: null,
+ tickLine: {
+   stroke: '#000',
+   value: 6 // 刻度线长度
+ },
+ title: null
+});
+chart.axis('value', {
+ tickLine: {
+   stroke: '#000',
+   value: 6 // 刻度线长度
+ },
+ labels: {
+   label: {
+     fill: '#000'
+   }
+ },
+ line: {
+   stroke: '#000'
+ },
+ grid: null
+});
+chart.line().position('date*value').color('city', ['#1f77b4', '#ff7f0e', '#2ca02c']).shape('spline').size(2);
+chart.render();
+});
+</script>
 </body>
 </html>

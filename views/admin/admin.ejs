@@ -4,7 +4,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div class="col-md-5 col-md-offset-1">
+            <div class="col-md-6 col-lg-5 col-lg-offset-1">
                 <div class="panel">
                     <header class="panel-heading">
                         <h4>本周公开课已报名</h4>
@@ -61,59 +61,14 @@
 
                 </div><!-- /.panel -->
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6 col-lg-5">
                 <div class="panel">
                     <header class="panel-heading">
                         <h4>本周公开课已报名</h4>
 
                     </header>
                     <div class="panel-body">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th style="width: 10px">ID</th>
-                                <th>课程名称</th>
-                                <th>主讲教师</th>
-                                <th>已报名</th>
-                                <th>完成</th>
-                                <th style="width: 75px">是否开课</th>
-                            </tr>
-                            <tr>
-                                <td>1.</td>
-                                <td>Unity 游戏开发</td>
-                                <td>林老师</td>
-                                <td>50</td>
-                                <td>
-                                    <div class="progress xs">
-                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-green">公开课</span></td>
-                            </tr>
-                            <tr>
-                                <td>2.</td>
-                                <td>3D 游戏建模</td>
-                                <td>郭老师</td>
-                                <td>50</td>
-                                <td>
-                                    <div class="progress xs">
-                                        <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-green">公开课</span></td>
-                            </tr>
-                            <tr>
-                                <td>3.</td>
-                                <td>H5 全栈开发</td>
-                                <td>王老师</td>
-                                <td>50</td>
-                                <td>
-                                    <div class="progress xs progress-striped active">
-                                        <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-light-blue">未开课</span></td>
-                            </tr>
-                        </table>
+                        <canvas id="stu-data" class="chart"></canvas>
                     </div><!-- /.panel-body -->
 
                 </div><!-- /.panel -->
@@ -123,7 +78,7 @@
         <!-- 刚报名的学生 -->
 
         <div class="row">
-            <div class="col-xs-10 col-xs-offset-1">
+            <div class="col-md-12 col-lg-10 col-lg-offset-1">
                 <div class="panel">
                     <header class="panel-heading">
                         <h4>刚报名</h4>
@@ -132,67 +87,57 @@
                     <div class="panel-body">
                         <table class="table table-bordered">
                             <tr>
-                                <th style="width: 10px"></th>
-                                <th style="width: 100px">姓 名</th>
-                                <th style="width: 150px" >课程名称</th>
-                                <th style="width: 150px">联系电话</th>
-                                <th style="width: 200px">QQ 号</th>
+                                <th style="width: 10px"><i class="fa fa-bars fa-lg"></i></th>
+                                <th style="width: 60px">姓 名</th>
+                                <th style="width: 100px" >课程名称</th>
+                                <th style="width: 100px">联系电话</th>
+                                <th style="width: 100px">QQ 号</th>
                                 <th>留言信息</th>
-                                <th style="width: 180px">时间</th>
+                                <th style="width: 150px">时间</th>
                             </tr>
                             <% stus.forEach(function(e){ %>
-                                <%- include('new', {one: e}) %>
-                                <% }) %>
+                                <% if(e.new){ %>
+                                    <%- include('new', {one: e}) %>
+                                <% } %>
+                            <% }) %>
                             </table>
                         </div><!-- /.panel-body -->
 
                     </div><!-- /.panel -->
                 </div>
-                <div class="col-xs-10 col-xs-offset-1">
+                <div class="col-md-12 col-lg-10 col-lg-offset-1">
                     <div class="panel">
                         <header class="panel-heading">
-                            <h4>刚报名</h4>
+                            <h4>Unity 开发</h4>
 
                         </header>
                         <div class="panel-body">
                             <table class="table table-bordered">
-                                <tr>
-                                    <th style="width: 10px"></th>
-                                    <th style="width: 100px">姓 名</th>
-                                    <th style="width: 150px" >课程名称</th>
-                                    <th style="width: 150px">联系电话</th>
-                                    <th style="width: 200px">QQ 号</th>
-                                    <th>留言信息</th>
-                                    <th style="width: 180px">时间</th>
-                                </tr>
+                                <%- include trth %>
                                 <% stus.forEach(function(e){ %>
-                                    <%- include('new', {one: e}) %>
-                                    <% }) %>
+                                    <% if(!e.new && e.subject === '1'){ %>
+                                        <%- include('3d', {one: e}) %>
+                                    <% } %>
+                                <% }) %>
                                 </table>
                             </div><!-- /.panel-body -->
 
                         </div><!-- /.panel -->
                     </div>
-                    <div class="col-xs-10 col-xs-offset-1">
+                    <div class="col-md-12 col-lg-10 col-lg-offset-1">
                         <div class="panel">
                             <header class="panel-heading">
-                                <h4>刚报名</h4>
+                                <h4>3D 游戏开发</h4>
 
                             </header>
                             <div class="panel-body">
                                 <table class="table table-bordered">
-                                    <tr>
-                                        <th style="width: 10px"></th>
-                                        <th style="width: 100px">姓 名</th>
-                                        <th style="width: 150px" >课程名称</th>
-                                        <th style="width: 150px">联系电话</th>
-                                        <th style="width: 200px">QQ 号</th>
-                                        <th>留言信息</th>
-                                        <th style="width: 180px">时间</th>
-                                    </tr>
+                                    <%- include trth %>
                                     <% stus.forEach(function(e){ %>
-                                        <%- include('new', {one: e}) %>
-                                        <% }) %>
+                                        <% if(!e.new && e.subject === '2'){ %>
+                                            <%- include('3d', {one: e}) %>
+                                        <% } %>
+                                    <% }) %>
                                     </table>
                                 </div><!-- /.panel-body -->
 

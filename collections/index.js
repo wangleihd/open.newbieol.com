@@ -31,6 +31,7 @@ let stuShema = Schema({
   zxMessage: { type: String, default: ""},
   zxSubject: { type: String, default: ""},
   zxstate: { type: Boolean, default: false },
+  times: { type: Number, default: 0 },
   subName: { type: Array, default: ['未选择公开课的课程', 'Unity 开发', '3D 游戏美术', 'H5 全栈开发']}
 });
 module.exports.stu = mongoose.model('stu', stuShema);

@@ -1,5 +1,5 @@
 <tr>
-    <td class="text-red" style="width: 10px"><i class="fa fa-chevron-circle-right fa-lg" aria-hidden="true"></i>
+    <td class="text-yellow" style="width: 10px"><i class="fa fa-bell faa-ring animated fa-lg" aria-hidden="true"></i>
 </td>
     <td style="width: 100px"><a href="/admin/<%= one._id%>"><%= one.name %></a></td>
     <td style="width: 150px" ><%= one.subName[one.subject] %></td>
@@ -16,5 +16,5 @@
             这家伙很懒什么也没有写 ...
         <% } %>
     </td>
-    <td style="width: 180px"><%= moment(one.data).format('YYYY-MM-DD') %> &nbsp; <%=  moment(one.data).zone(-8).format('HH:MM') %></td>
+    <td style="width: 180px"><%= moment(one.data).format('YYYY-MM-DD') %> &nbsp; <%=  moment(one.data).format('HH:MM') %></td>
 </tr>

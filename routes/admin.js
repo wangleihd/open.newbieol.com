@@ -28,13 +28,32 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
+router.post('/stu', function(req, res, next) {
+    db.stu.findById(req.body._id, function(err, update) {
+        update.zxName = req.session.name;
+        update.new = false;
+        update.zxstate = true;
+        if(req.body.message){
+            update.zxMessage = req.body.message;
+        }
+        console.log(update);
+        db.stu.findByIdAndUpdate(req.body._id, {$set: update}, function(err, result) {
+            if(err) console.log(err);
+            console.log(result);
+            res.redirect("/admin/" +  req.body._id);
+        })
+
+    });
+
+
+})
 
 router.post('/update', function(req, res, next) {
     console.log(req.body);
     db.stu.findByIdAndUpdate(req.body._id, req.body, function(err, result) {
         if(err) console.log(err);
         console.log(result);
-        res.redirect("/stu/" +  req.body._id);
+        res.redirect("/admin/" +  req.body._id);
     })
 })
 
