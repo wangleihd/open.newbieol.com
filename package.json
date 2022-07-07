@@ -16,7 +16,7 @@
     "express-react-views": "^0.10.2",
     "express-session": "^1.15.3",
     "material-ui": "^0.18.1",
-    "moment": "^2.18.1",
+    "moment": "^2.29.4",
     "mongoose": "^4.9.6",
     "morgan": "~1.8.1",
     "pubnub": "^4.15.1",
